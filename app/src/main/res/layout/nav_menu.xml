@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/students" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:weightSum="6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/president_img"
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:padding="10sp"
+                android:src="@drawable/sjclogo1" />
+
+            <LinearLayout
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center|start"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:text="Director's Message"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/president_img"
+                    android:text="Rector"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardCornerRadius="5sp">
+
+            <TextView
+                android:id="@+id/tv_department"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/ebgaramond_regular"
+                android:gravity="center|start"
+                android:paddingLeft="10sp"
+                android:text="Department"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardCornerRadius="5sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/ebgaramond_regular"
+                android:gravity="center|start"
+                android:paddingLeft="10sp"
+                android:text="Facilities"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardCornerRadius="5sp">
+
+            <TextView
+                android:id="@+id/tvGallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/ebgaramond_regular"
+                android:gravity="center|start"
+                android:paddingLeft="10sp"
+                android:text="Gallery"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardCornerRadius="5sp">
+
+            <TextView
+                android:id="@+id/tv_contactus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/ebgaramond_regular"
+                android:gravity="center|start"
+                android:paddingLeft="10sp"
+                android:text="Contact Us"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="5sp">
+
+                <ImageView
+                    android:id="@+id/iv_call"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/call" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="5sp">
+
+                <ImageView
+                    android:id="@+id/iv_facebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/facebook" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="5sp">
+
+                <ImageView
+                    android:id="@+id/iv_mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/mail" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

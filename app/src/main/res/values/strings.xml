@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SJC</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="text">Address: PB 27094, 36 Lalbagh Road \nBangalore - 560 027</string>
+    <string name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type</string>
+    <string name="title">Thank You For Your Service !!!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

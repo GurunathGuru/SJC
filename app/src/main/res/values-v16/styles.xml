@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="CustomTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/colorBlue1</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/ramarajaregular</item>
+        <item name="android:textSize" tools:ignore="DuplicateDefinition">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
