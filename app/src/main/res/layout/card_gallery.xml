@@ -7,36 +7,33 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cvAlbum"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200sp"
         android:layout_margin="5sp"
         app:cardBackgroundColor="@color/colorWhite"
         app:cardCornerRadius="5sp">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/ivImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent" />
 
-            <ImageView
-                android:id="@+id/ivImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#4B535353" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom">
 
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#7E090909"
                 android:fontFamily="@font/ebgaramond_regular"
-                android:gravity="bottom|start"
+                android:gravity="bottom|center"
                 android:padding="10sp"
-                android:text="ST. JOSEPH COLLEGE"
+                android:text="Albums"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-        </RelativeLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

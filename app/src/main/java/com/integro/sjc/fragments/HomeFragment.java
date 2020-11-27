@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.github.demono.AutoScrollViewPager;
 import com.integro.sjc.AboutSjcActivity;
+import com.integro.sjc.AnnouncementsActivity;
 import com.integro.sjc.OurCoursesActivity;
 import com.integro.sjc.PlacementActivity;
 import com.integro.sjc.R;
@@ -41,26 +42,29 @@ public class HomeFragment extends Fragment {
     private ArrayList<News> newsArrayList;
     private NewsViewPagerAdapter newsViewPagerAdapter;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         vpNews = v.findViewById(R.id.vpNews);
         newsArrayList = new ArrayList<>();
-        String videoId = "https://stmarys.onlinefeast.in/SJC1.mp4";
+       /* String videoId = "https://stmarys.onlinefeast.in/SJC1.mp4";
         String videoId2 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
         String videoId3 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-        getNewsList();
+*/        getNewsList();
 
+        TextView tvAnnouncements=v.findViewById(R.id.tv_Announcements);
         TextView tvAboutSjc = v.findViewById(R.id.tv_AboutSjc);
         TextView tvOurCourses = v.findViewById(R.id.tv_OurCourses);
         TextView tvOurCourses1 = v.findViewById(R.id.tv_OurCourses1);
         TextView tvPlacement = v.findViewById(R.id.tvPlacement);
 
-        AndExoPlayerView videoView = v.findViewById(R.id.videoview);
+       /* AndExoPlayerView videoView = v.findViewById(R.id.videoview);
         videoView.setSource(videoId);
         videoView.requestFocus();
-
+*/
         tvAboutSjc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +86,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intentOurCourses1 = new Intent(getContext(), OurCoursesActivity.class);
                 startActivity(intentOurCourses1);
+            }
+        });
+        tvAnnouncements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentAnnouncements = new Intent(getContext(), AnnouncementsActivity.class);
+                startActivity(intentAnnouncements);
+
             }
         });
 
