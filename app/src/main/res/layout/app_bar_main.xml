@@ -23,7 +23,8 @@
             android:layout_gravity="center"
             android:text="ST. JOSEPH'S COLLEGE"
             android:fontFamily="@font/ebgaramond_regular"
-            android:textSize="30sp"
+            android:textSize="22sp"
+            android:gravity="center"
             android:textColor="@android:color/white" />
         </androidx.appcompat.widget.Toolbar>
 
