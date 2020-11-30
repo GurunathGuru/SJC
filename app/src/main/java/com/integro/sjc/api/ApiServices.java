@@ -2,8 +2,11 @@ package com.integro.sjc.api;
 
 import com.integro.sjc.model.AboutSjcList;
 import com.integro.sjc.model.AnnouncementsList;
+import com.integro.sjc.model.CoverPhotos;
+import com.integro.sjc.model.CoverPhotosList;
 import com.integro.sjc.model.Department2List;
 import com.integro.sjc.model.DepartmentList;
+import com.integro.sjc.model.EventsList;
 import com.integro.sjc.model.FacilitiesList;
 import com.integro.sjc.model.GalleryAlbumList;
 import com.integro.sjc.model.GalleryImagesList;
@@ -54,21 +57,15 @@ public interface ApiServices {
     @POST("sjc_galleryimages.php")
     Call<GalleryImagesList> getGalleryImagesList(@Field("g_id")String g_id);
 
-    @FormUrlEncoded
-    @POST("sjc_announcement.php")
-    Call<AnnouncementsList> getAnnouncementsList(@Field("updated_at")String updated_at);
+    @GET("sjc_announcement.php")
+    Call<AnnouncementsList> getAnnouncementsList();
 
+    @GET("sjc_facilities.php")
+    Call<FacilitiesList> getFacilitiesList();
 
-    @FormUrlEncoded
-    @POST("sjc_facilities.php")
-    Call<FacilitiesList> getFacilitiesList(@Field("updated_at")String updated_at);
+    @GET("sjc_events.php")
+    Call<EventsList> getEventsList();
 
-
-
-
-
-
-
-
-
+    @GET("sjc_cphotos.php")
+    Call<CoverPhotosList> getCoverPhotosList();
 }

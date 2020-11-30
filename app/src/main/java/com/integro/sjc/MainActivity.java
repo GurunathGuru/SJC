@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageView ivFacebook = findViewById(R.id.iv_facebook);
         ImageView ivMail = findViewById(R.id.iv_mail);
         TextView tvGallery=findViewById(R.id.tvGallery);
+        TextView tvFacilities=findViewById(R.id.fac);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager(), 4);
@@ -86,6 +87,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+        tvFacilities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FacilitiesActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         ivCall.setOnClickListener(new View.OnClickListener() {
             @Override

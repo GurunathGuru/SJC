@@ -2,7 +2,10 @@ package com.integro.sjc.model;
 
 import java.io.Serializable;
 
-public class Facilities  implements Serializable {
+public class Events implements Serializable {
+
+    private String date;
+
     private String image;
 
     private String updated_at;
@@ -12,6 +15,16 @@ public class Facilities  implements Serializable {
     private String id;
 
     private String title;
+
+    public String getDate ()
+    {
+        return date;
+    }
+
+    public void setDate (String date)
+    {
+        this.date = date;
+    }
 
     public String getImage ()
     {

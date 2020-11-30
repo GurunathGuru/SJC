@@ -3,6 +3,7 @@ package com.integro.sjc.model;
 import java.io.Serializable;
 
 public class CoverPhotos implements Serializable {
+
     private String image;
 
     private String updated_at;

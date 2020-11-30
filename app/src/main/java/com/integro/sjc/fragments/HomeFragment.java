@@ -2,7 +2,6 @@ package com.integro.sjc.fragments;
 
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,23 +9,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import androidx.fragment.app.Fragment;
 
 import com.github.demono.AutoScrollViewPager;
 import com.integro.sjc.AboutSjcActivity;
 import com.integro.sjc.AnnouncementsActivity;
+import com.integro.sjc.LoginActivity;
 import com.integro.sjc.OurCoursesActivity;
 import com.integro.sjc.PlacementActivity;
 import com.integro.sjc.R;
+import com.integro.sjc.WebActivity;
+import com.integro.sjc.adapters.CoverPhotosViewPagerAdapter;
 import com.integro.sjc.adapters.NewsViewPagerAdapter;
 import com.integro.sjc.api.ApiClients;
 import com.integro.sjc.api.ApiServices;
+import com.integro.sjc.model.CoverPhotos;
+import com.integro.sjc.model.CoverPhotosList;
 import com.integro.sjc.model.News;
 import com.integro.sjc.model.NewsList;
-import com.potyvideo.library.AndExoPlayerView;
-import com.potyvideo.library.globalInterfaces.ExoPlayerCallBack;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,9 @@ public class HomeFragment extends Fragment {
     private ArrayList<News> newsArrayList;
     private NewsViewPagerAdapter newsViewPagerAdapter;
 
+    private AutoScrollViewPager av_imageView;
+    private ArrayList<CoverPhotos> coverPhotosArrayList;
+    private CoverPhotosViewPagerAdapter coverPhotosViewPagerAdapter;
 
 
     @Override
@@ -50,21 +54,24 @@ public class HomeFragment extends Fragment {
 
         vpNews = v.findViewById(R.id.vpNews);
         newsArrayList = new ArrayList<>();
-       /* String videoId = "https://stmarys.onlinefeast.in/SJC1.mp4";
-        String videoId2 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
-        String videoId3 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-*/        getNewsList();
 
-        TextView tvAnnouncements=v.findViewById(R.id.tv_Announcements);
+        av_imageView = v.findViewById(R.id.av_imageView);
+        coverPhotosArrayList = new ArrayList<>();
+
+        getNewsList();
+        getCoverPhotosList();
+
+        TextView tvAnnouncements = v.findViewById(R.id.tv_Announcements);
         TextView tvAboutSjc = v.findViewById(R.id.tv_AboutSjc);
         TextView tvOurCourses = v.findViewById(R.id.tv_OurCourses);
         TextView tvOurCourses1 = v.findViewById(R.id.tv_OurCourses1);
         TextView tvPlacement = v.findViewById(R.id.tvPlacement);
+        TextView tvScholarships = v.findViewById(R.id.tvScholarships);
+        TextView tvOnlineClasses = v.findViewById(R.id.tvOnlineClasses);
+        TextView tvSchool = v.findViewById(R.id.tvSchool);
+        TextView tvLogin= v.findViewById(R.id.tvLogin);
 
-       /* AndExoPlayerView videoView = v.findViewById(R.id.videoview);
-        videoView.setSource(videoId);
-        videoView.requestFocus();
-*/
+
         tvAboutSjc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +112,40 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        tvScholarships.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), WebActivity.class);
+                intent.putExtra("TAG", "https://www.sjc.ac.in/scholarships.php");
+                startActivity(intent);
+            }
+        });
+
+        tvSchool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), WebActivity.class);
+                intent.putExtra("TAG", "https://www.sjc.ac.in/department_main.php");
+                startActivity(intent);
+            }
+        });
+
+        tvOnlineClasses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), WebActivity.class);
+                intent.putExtra("TAG", "https://www.example.com");
+                startActivity(intent);
+            }
+        });
+
+        tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         return v;
     }
 
@@ -132,9 +173,41 @@ public class HomeFragment extends Fragment {
                     vpNews.startAutoScroll();
                 }
             }
-
             @Override
             public void onFailure(Call<NewsList> call, Throwable t) {
+                Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "onfailure:" + t.getMessage());
+            }
+        });
+    }
+
+    public void getCoverPhotosList() {
+        Call<CoverPhotosList> call = ApiClients.getClients().create(ApiServices.class).getCoverPhotosList();
+        call.enqueue(new Callback<CoverPhotosList>() {
+            @Override
+            public void onResponse(Call<CoverPhotosList> call, Response<CoverPhotosList> response) {
+                Log.i("onResponse", "" + response.isSuccessful());
+                if (!response.isSuccessful()) {
+                    Log.i(TAG, "onResponse: fail");
+                    return;
+                }
+                if (response.body().getCoverPhotosArrayList() == null) {
+                    Log.i(TAG, "onResponse: null");
+                    return;
+                }
+                int size = response.body().getCoverPhotosArrayList().size();
+                Log.i(TAG, "onResponse from home page: size " + size);
+
+                if (size > 0) {
+                    coverPhotosArrayList.addAll(response.body().getCoverPhotosArrayList());
+                    coverPhotosViewPagerAdapter = new CoverPhotosViewPagerAdapter(getContext(), coverPhotosArrayList);
+                    av_imageView.setAdapter(coverPhotosViewPagerAdapter);
+                    av_imageView.startAutoScroll(3000);
+                    av_imageView.setCycle(true);
+                }
+            }
+            @Override
+            public void onFailure(Call<CoverPhotosList> call, Throwable t) {
                 Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "onfailure:" + t.getMessage());
             }

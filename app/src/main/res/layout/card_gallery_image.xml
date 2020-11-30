@@ -11,7 +11,7 @@
             android:id="@+id/ivImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/book_loading_book" />
+            android:background="@color/colorPrimary" />
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>

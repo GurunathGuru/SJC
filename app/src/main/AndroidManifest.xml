@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FacilitiesActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".EventsActivity" />
+        <activity android:name=".FacilitiesActivity" />
         <activity android:name=".AnnouncementsActivity" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".GalleryImagesActivity" />

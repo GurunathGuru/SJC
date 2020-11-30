@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class CoverPhotosList {
+
     @SerializedName("sjc_cphotos")
     ArrayList<CoverPhotos>coverPhotosArrayList;
 
@@ -14,6 +15,7 @@ public class CoverPhotosList {
     public ArrayList<CoverPhotos>getCoverPhotosArrayList(){
         return coverPhotosArrayList;
     }
+
     public void setCoverPhotosArrayList(ArrayList<CoverPhotos>coverPhotosArrayList){
         this.coverPhotosArrayList=coverPhotosArrayList;
     }

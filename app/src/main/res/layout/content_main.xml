@@ -21,7 +21,7 @@
         app:tabIndicator="@null"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/colorPrimary"
         app:tabMode="fixed"/>
 
 </LinearLayout>

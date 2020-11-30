@@ -74,12 +74,14 @@
                             android:src="@drawable/sjclogo1" />
 
                         <TextView
+                            android:id="@+id/tvEvents"
                             android:layout_width="0sp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@drawable/border_white"
                             android:fontFamily="@font/ebgaramond_regular"
                             android:gravity="center"
+                            android:onClick="events"
                             android:text="UPCOMING EVENTS"
                             android:textColor="@color/colorWhite"
                             android:textSize="18sp" />
@@ -227,6 +229,7 @@
                     android:weightSum="3">
 
                     <TextView
+                        android:id="@+id/tvOutReach"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.5"
@@ -344,6 +347,7 @@
         android:weightSum="2">
 
         <TextView
+            android:id="@+id/tvResearch"
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -361,6 +365,7 @@
             android:background="@color/colorWhite" />
 
         <TextView
+            android:id="@+id/tvAssociations"
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -398,6 +403,7 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/tvStudentUnion"
                     android:layout_width="match_parent"
                     android:layout_height="0sp"
                     android:layout_marginBottom="7.5sp"
@@ -410,6 +416,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/tvAchievements"
                     android:layout_width="match_parent"
                     android:layout_height="0sp"
                     android:layout_marginTop="7.5sp"
@@ -447,6 +454,7 @@
                     android:src="@drawable/donate" />
 
                 <TextView
+                    android:id="@+id/tvSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ebgaramond_regular"

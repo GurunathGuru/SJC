@@ -35,7 +35,7 @@ public class WebFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_web, container, false);
 
         newtonCradleLoading = view.findViewById(R.id.newton_cradle_loading);
-        newtonCradleLoading.setLoadingColor(Color.parseColor("#378dbe"));
+        newtonCradleLoading.setLoadingColor(Color.parseColor("#07294E"));
         newtonCradleLoading.start();
 
         webView = view.findViewById(R.id.webview);

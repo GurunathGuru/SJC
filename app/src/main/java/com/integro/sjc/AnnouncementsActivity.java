@@ -45,8 +45,7 @@ public class AnnouncementsActivity extends AppCompatActivity {
     }
     public void getAnnouncementsList(){
 
-        String date = "2020-07-06 01:59:02";
-        announcementsListCall = apiServices.getAnnouncementsList(date);
+        announcementsListCall = apiServices.getAnnouncementsList();
         announcementsListCall.enqueue(new Callback<AnnouncementsList>() {
             @Override
             public void onResponse(Call<AnnouncementsList> call, Response<AnnouncementsList> response) {

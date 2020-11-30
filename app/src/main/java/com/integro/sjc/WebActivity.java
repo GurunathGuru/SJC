@@ -24,7 +24,7 @@ public class WebActivity extends AppCompatActivity {
 
         String url = (String) getIntent().getSerializableExtra("TAG");
         newtonCradleLoading = findViewById(R.id.newton_cradle_loading);
-        newtonCradleLoading.setLoadingColor(Color.parseColor("#378dbe"));
+        newtonCradleLoading.setLoadingColor(Color.parseColor("#07294E"));
         newtonCradleLoading.start();
         webView = findViewById(R.id.webview);
         webView.loadUrl(url);

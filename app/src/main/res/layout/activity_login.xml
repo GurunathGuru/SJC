@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="4"
+    tools:context=".LoginActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_margin="5sp"
+        android:layout_weight="1"
+        android:elevation="3sp"
+        app:cardBackgroundColor="@color/colorYellow"
+        app:cardCornerRadius="5sp">
+
+        <TextView
+            android:id="@+id/tvFaculty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ebgaramond_regular"
+            android:gravity="center"
+            android:text="Faculty Login"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_margin="5sp"
+        android:layout_weight="1"
+        android:elevation="3sp"
+        app:cardBackgroundColor="@color/colorYellow"
+        app:cardCornerRadius="5sp">
+
+        <TextView
+            android:id="@+id/tvStudent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ebgaramond_regular"
+            android:gravity="center"
+            android:text="Student Login"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_margin="5sp"
+        android:layout_weight="1"
+        android:elevation="3sp"
+        app:cardBackgroundColor="@color/colorYellow"
+        app:cardCornerRadius="5sp">
+
+        <TextView
+            android:id="@+id/tvParent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ebgaramond_regular"
+            android:gravity="center"
+            android:text="Parent Login"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_margin="5sp"
+        android:layout_weight="1"
+        android:elevation="3sp"
+        app:cardBackgroundColor="@color/colorYellow"
+        app:cardCornerRadius="5sp">
+
+        <TextView
+            android:id="@+id/tvAdmission"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ebgaramond_regular"
+            android:gravity="center"
+            android:text="Admission Login"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

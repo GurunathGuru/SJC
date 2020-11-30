@@ -8,10 +8,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardElevation="5dp"
-        android:layout_margin="15dp"
+        android:layout_margin="5dp"
+        app:cardElevation="3dp"
         app:cardCornerRadius="5dp">
-    <LinearLayout
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -37,11 +38,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_margin="10dp"
             android:text=" View/Download"
             android:textColor="@color/colorWhite"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorYellow"
             android:textSize="15dp"
             android:padding="5dp"
             android:fontFamily="@font/frankruhllibre_medium"/>

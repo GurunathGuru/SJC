@@ -8,7 +8,7 @@ public class FacilitiesList {
 @SerializedName("sjc_facilities")
     ArrayList<Facilities>facilitiesArrayList;
 
-    private String success;
+    private int success;
 
     private String message;
 
@@ -16,14 +16,14 @@ public class FacilitiesList {
         return facilitiesArrayList;
     }
    public void setFacilitiesArrayList(ArrayList<Facilities>facilitiesArrayList){
-
+         this.facilitiesArrayList=facilitiesArrayList;
    }
-    public String getSuccess ()
+    public int getSuccess ()
     {
         return success;
     }
 
-    public void setSuccess (String success)
+    public void setSuccess (int success)
     {
         this.success = success;
     }

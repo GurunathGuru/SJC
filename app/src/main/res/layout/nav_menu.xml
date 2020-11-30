@@ -95,6 +95,7 @@
             app:cardCornerRadius="5sp">
 
             <TextView
+                android:id="@+id/fac"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/ebgaramond_regular"
