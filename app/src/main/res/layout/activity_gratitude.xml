@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="3.5"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context=".GratitudeActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:fontFamily="@font/ebgaramond_regular"
+        android:gravity="center"
+        android:text="OUR GRATITUDE"
+        android:minLines="2"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="275sp"
+        android:gravity="bottom|center"
+        android:orientation="vertical">
+
+        <com.github.demono.AutoScrollViewPager
+            android:id="@+id/vpGratitude"
+            android:layout_width="match_parent"
+            android:layout_height="250sp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="25sp"
+            android:background="@color/colorPrimary"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ebgaramond_regular"
+        android:gravity="start|center"
+        android:minLines="2"
+        android:paddingLeft="10sp"
+        android:text="@string/title"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginRight="10sp"
+        android:background="@color/colorPrimary" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ebgaramond_regular"
+            android:gravity="start"
+            android:padding="10sp"
+            android:text="@string/description"
+            android:textColor="#5A5A5A"
+            android:textSize="15sp" />
+    </ScrollView>
+</LinearLayout>

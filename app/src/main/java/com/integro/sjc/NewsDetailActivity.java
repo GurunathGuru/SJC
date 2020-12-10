@@ -55,7 +55,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "https://www.example.com");
+                intent.putExtra(Intent.EXTRA_TEXT, "https://sjc.ac.in/sjc_app/newsshare.php?id="+news.getId());
                 startActivity(intent);
             }
         });

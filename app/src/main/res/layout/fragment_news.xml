@@ -153,28 +153,11 @@
                             android:background="@color/colorYellow"
                             android:padding="5sp">
 
-                            <LinearLayout
+                            <com.github.demono.AutoScrollViewPager
+                                android:id="@+id/vpAlumni"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical"
-                                android:weightSum="2">
+                                android:layout_height="match_parent"/>
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0sp"
-                                    android:layout_weight="1"
-                                    android:paddingTop="10sp"
-                                    android:background="@color/colorWhite"
-                                    android:src="@drawable/kenneth1" />
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0sp"
-                                    android:layout_weight="1"
-                                    android:padding="10sp"
-                                    android:background="@color/colorWhite"
-                                    android:src="@drawable/kenneth2" />
-                            </LinearLayout>
                         </RelativeLayout>
 
                         <LinearLayout
@@ -192,8 +175,9 @@
                                 android:background="@color/colorYellow"
                                 android:fontFamily="@font/ebgaramond_regular"
                                 android:gravity="center"
+                                android:onClick="alumni"
                                 android:text="DISTINGUISHED ALUMNUS"
-                                android:textColor="@color/colorWhite"
+                                android:textColor="@color/colorPrimary"
                                 android:textSize="18sp" />
 
                             <TextView
@@ -204,8 +188,9 @@
                                 android:background="@color/colorYellow"
                                 android:fontFamily="@font/ebgaramond_regular"
                                 android:gravity="center"
+                                android:onClick="alumni"
                                 android:text="Click Here"
-                                android:textColor="@color/colorWhite"
+                                android:textColor="@color/design_default_color_error"
                                 android:textSize="15sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -236,13 +221,14 @@
                         android:fontFamily="@font/ebgaramond_regular"
                         android:gravity="center"
                         android:text="OUT REACH"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="18sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
                         android:layout_weight="2.5"
+                        android:onClick="gratitude"
                         android:background="@color/colorWhite"
                         android:orientation="vertical"
                         android:weightSum="3.5">
@@ -257,13 +243,13 @@
                             android:textColor="@color/design_default_color_on_secondary"
                             android:textSize="15sp" />
 
-                        <ImageView
+                        <com.github.demono.AutoScrollViewPager
+                            android:id="@+id/vpGratitude"
                             android:layout_width="match_parent"
                             android:layout_height="0sp"
+                            android:onClick="gratitude"
                             android:layout_marginRight="2sp"
-                            android:layout_weight="1.70"
-                            android:gravity="center"
-                            android:src="@drawable/gratitude" />
+                            android:layout_weight="1.70" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -295,6 +281,7 @@
                             android:visibility="gone" />
 
                         <TextView
+                            android:id="@+id/tvReadMore"
                             android:layout_width="match_parent"
                             android:layout_height="0sp"
                             android:layout_weight="0.80"
@@ -302,7 +289,7 @@
                             android:gravity="end|center"
                             android:paddingRight="10sp"
                             android:text="Read more..!"
-                            android:textColor="@color/colorYellow"
+                            android:textColor="#5A5A5A"
                             android:textSize="20sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -412,7 +399,7 @@
                     android:fontFamily="@font/ebgaramond_regular"
                     android:gravity="center"
                     android:text="STUDENT UNION"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="18sp" />
 
                 <TextView
@@ -437,6 +424,7 @@
                 android:background="@color/colorPrimary" />
 
             <LinearLayout
+                android:id="@+id/llSupport"
                 android:layout_width="0sp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -454,7 +442,6 @@
                     android:src="@drawable/donate" />
 
                 <TextView
-                    android:id="@+id/tvSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ebgaramond_regular"

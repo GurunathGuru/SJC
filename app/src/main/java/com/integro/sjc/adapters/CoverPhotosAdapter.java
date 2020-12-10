@@ -45,8 +45,8 @@ public class CoverPhotosAdapter extends PagerAdapter {
         ImageView ivImage;
         CoverPhotos coverPhotos = coverPhotosArrayList.get(position);
         View view = LayoutInflater.from(context).inflate(R.layout.card_cover_vp_photos, container, false);
-        ivImage = view.findViewById(R.id.ivImagecp);
-        Glide.with(context).load(coverPhotosArrayList.get(position).getImage()).into(ivImage);
+        ivImage = view.findViewById(R.id.ivImage);
+        Glide.with(context).load(coverPhotos.getImage()).into(ivImage);
         ((ViewPager) container).addView(view);
         return view;
     }

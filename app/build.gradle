@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -36,6 +36,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -54,4 +56,7 @@ dependencies {
     implementation 'com.github.demoNo:AutoScrollViewPager:v1.0.2'
 
     implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:1.0.16'
+
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
 }

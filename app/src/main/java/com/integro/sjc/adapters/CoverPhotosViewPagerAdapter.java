@@ -40,7 +40,7 @@ public class CoverPhotosViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.card_cover_photos, container, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.card_cover_vp_photos, container, false);
 
         ImageView ivImage = view.findViewById(R.id.ivImage);
         Glide.with(context)

@@ -1,6 +1,7 @@
 package com.integro.sjc.adapters;
 
 import android.content.Context;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.integro.sjc.R;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {
     private static final String TAG = "NotificationAdapter";
+
     Context context;
     ArrayList<Notification> notificationArrayList;
 
@@ -36,12 +39,14 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.MyViewHolder holder, int position) {
         final Notification notification = notificationArrayList.get(position);
-
-        int itemId = Integer.parseInt(notificationArrayList.get(position).getId());
-        Log.i(TAG, "onBindViewHolder: itemId " + itemId);
-        if (itemId / 2 == 1) {
-            holder.cardViewNotification.setCardBackgroundColor(context.getResources().getColor(R.color.colorYellow));
-            holder.tvTitle.setTextColor(context.getResources().getColor(R.color.white));
+        if (notification.getNtype().contentEquals("Faculty")) {
+            holder.cardViewNotification.setCardBackgroundColor(ContextCompat.getColor(context, R.color.colorYellow));
+            holder.tvDate.setTextColor(ContextCompat.getColor(context,R.color.black));
+            holder.tvTitle.setTextColor(ContextCompat.getColor(context,R.color.design_default_color_error));
+            holder.tvDescription.setTextColor(ContextCompat.getColor(context,R.color.black));
+            holder.tvDate.setText(notification.getDate());
+            holder.tvTitle.setText(notification.getTitle());
+            holder.tvDescription.setText(notification.getDescription());
         }
         holder.tvDate.setText(notification.getDate());
         holder.tvTitle.setText(notification.getTitle());

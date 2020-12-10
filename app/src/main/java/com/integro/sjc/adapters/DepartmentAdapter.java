@@ -5,17 +5,16 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.integro.sjc.DepartmentActivity2;
 import com.integro.sjc.R;
 import com.integro.sjc.model.Department;
+import com.integro.sjc.model.Department2;
 
 import java.util.ArrayList;
 
@@ -40,15 +39,11 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.My
         Department department = departmentArrayList.get(position);
         holder.tvDeptTitle.setText(department.getTitle());
 
-        Glide.with(context)
-                .load(department.getImage())
-                .into(holder.ivDeptImage);
-
         holder.cvDepart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(context, DepartmentActivity2.class);
-                intent.putExtra("position",position);
+                Intent intent = new Intent(context, DepartmentActivity2.class);
+                intent.putExtra("position", position);
                 intent.putExtra("itemId",department.getId());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
@@ -64,14 +59,12 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvDeptTitle;
-        ImageView ivDeptImage;
         CardView cvDepart;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDeptTitle = itemView.findViewById(R.id.tv_deptTitle);
-            ivDeptImage = itemView.findViewById(R.id.iv_ivDeptImage);
-            cvDepart=itemView.findViewById(R.id.cvDepart);
+            cvDepart = itemView.findViewById(R.id.cvDepart);
         }
     }
 }

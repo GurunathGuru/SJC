@@ -8,23 +8,12 @@ public class Department2 implements Serializable {
 
     private String d_id;
 
-    private String image;
-
     private String title;
 
-    private String description;
+    private String weblink;
 
     private String updated_at;
 
-    public String getImage ()
-    {
-        return image;
-    }
-
-    public void setImage (String image)
-    {
-        this.image = image;
-    }
 
     public String getUpdated_at ()
     {
@@ -46,16 +35,6 @@ public class Department2 implements Serializable {
         this.d_id = d_id;
     }
 
-    public String getDescription ()
-    {
-        return description;
-    }
-
-    public void setDescription (String description)
-    {
-        this.description = description;
-    }
-
     public String getId ()
     {
         return id;
@@ -74,5 +53,13 @@ public class Department2 implements Serializable {
     public void setTitle (String title)
     {
         this.title = title;
+    }
+
+    public String getWeblink() {
+        return weblink;
+    }
+
+    public void setWeblink(String weblink) {
+        this.weblink = weblink;
     }
 }

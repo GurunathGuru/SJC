@@ -9,10 +9,8 @@
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_marginLeft="10sp"
         android:background="@drawable/border_white"
         android:padding="2dp"
-        android:layout_marginRight="10sp"
         android:layout_weight="1.4"
         android:scaleType="centerCrop"
         android:src="@drawable/news" />

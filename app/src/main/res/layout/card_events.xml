@@ -78,7 +78,7 @@
                     android:fontFamily="@font/ebgaramond_regular"
                     android:gravity="center"
                     android:text="Add to Calendar"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/design_default_color_error"
                     android:textSize="18sp" />
 
                 <TextView
@@ -91,7 +91,7 @@
                     android:fontFamily="@font/ebgaramond_regular"
                     android:gravity="center"
                     android:text="Share"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/design_default_color_error"
                     android:textSize="18sp" />
             </LinearLayout>
 

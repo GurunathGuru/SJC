@@ -2,13 +2,12 @@ package com.integro.sjc;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.integro.sjc.adapters.Department2Adapter;
 import com.integro.sjc.api.ApiClients;
 import com.integro.sjc.api.ApiServices;
 import com.integro.sjc.model.Department2;
@@ -24,11 +23,10 @@ public class DepartmentActivity2 extends AppCompatActivity {
 
     private static final String TAG = "DepartmentActivity2";
 
+    RecyclerView rvDep2;
     int position;
     String itemId;
-    ImageView ivImage;
-    TextView tvTitle;
-    TextView tvDescription;
+    Department2Adapter departmentAdapter;
     ArrayList<Department2> department2ArrayList;
 
     @Override
@@ -36,13 +34,11 @@ public class DepartmentActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2_department);
 
-        itemId = getIntent().getStringExtra("itemId");
-        position = getIntent().getIntExtra("position", 0) - 1;
         department2ArrayList = new ArrayList<>();
+        rvDep2 = findViewById(R.id.rv_dept2);
 
-        ivImage = findViewById(R.id.ivImage);
-        tvTitle = findViewById(R.id.tv_title);
-        tvDescription = findViewById(R.id.tv_description);
+        itemId = (String) getIntent().getSerializableExtra("itemId");
+        position = (int) getIntent().getSerializableExtra("position");
 
         getDepart2();
     }
@@ -65,14 +61,10 @@ public class DepartmentActivity2 extends AppCompatActivity {
                 Log.i(TAG, "onResponse: size " + size);
                 if (size > 0) {
                     department2ArrayList.addAll(response.body().getDepartment2ArrayList());
-                    tvTitle.setText(department2ArrayList.get(position).getTitle());
-                    tvDescription.setText(department2ArrayList.get(position).getDescription());
-                    Glide.with(getApplicationContext())
-                            .load(department2ArrayList.get(position).getImage())
-                            .into(ivImage);
-                } else {
-                    finish();
-                    Toast.makeText(DepartmentActivity2.this, "Data not Available", Toast.LENGTH_SHORT).show();
+                    rvDep2.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    departmentAdapter = new Department2Adapter(getApplicationContext(), department2ArrayList);
+                    rvDep2.setAdapter(departmentAdapter);
+                    rvDep2.setHasFixedSize(true);
                 }
             }
 

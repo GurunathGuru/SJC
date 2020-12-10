@@ -40,7 +40,7 @@
             android:gravity="center"
             android:layout_margin="10dp"
             android:text=" View/Download"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/design_default_color_error"
             android:background="@color/colorYellow"
             android:textSize="15dp"
             android:padding="5dp"

@@ -42,7 +42,7 @@ public class NewsViewPagerAdapter extends PagerAdapter {
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.card_news_viewpager, container, false);
 
         LinearLayout llNews = view.findViewById(R.id.llNews);

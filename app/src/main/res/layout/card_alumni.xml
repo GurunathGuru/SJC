@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:onClick="alumni"
+    android:weightSum="2">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:background="@color/colorWhite"
+        android:paddingTop="10sp"
+        android:src="@drawable/kenneth1" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/ebgaramond_regular"
+        android:gravity="start|center"
+        android:minLines="2"
+        android:maxLines="2"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:text="@string/title"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/ebgaramond_regular"
+        android:gravity="start|center"
+        android:minLines="2"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
+        android:maxLines="4"
+        android:text="@string/title"
+        android:textColor="@color/colorPrimary"
+        android:textSize="10sp" />
+</LinearLayout>

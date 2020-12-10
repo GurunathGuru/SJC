@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cr_notification"
@@ -54,7 +54,6 @@
                 android:layout_marginRight="10sp"
                 android:background="@color/colorPrimary" />
 
-
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
@@ -70,6 +69,4 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-
 </LinearLayout>

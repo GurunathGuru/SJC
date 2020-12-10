@@ -1,23 +1,19 @@
 package com.integro.sjc.fragments;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.integro.sjc.R;
 import com.integro.sjc.adapters.NotificationAdapter;
 import com.integro.sjc.api.ApiClients;
@@ -34,61 +30,63 @@ import retrofit2.Response;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class NotificationFragment extends Fragment {
-    ApiServices apiServices;
-    RecyclerView rvnotification;
-    LinearLayoutManager manager;
+
+    RecyclerView rvNotification;
     NotificationAdapter adapter;
     ArrayList<Notification> notificationArrayList;
-    Call<NotificationList> notificationListCall;
+    private boolean flag = false;
+
+    public NotificationFragment() {
+        FirebaseUser vipUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (vipUser != null) {
+            flag = true;
+        } else {
+            flag = false;
+        }
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
-        apiServices = ApiClients.getClients().create(ApiServices.class);
-        rvnotification = view.findViewById(R.id.rv_notification);
+
+        rvNotification = view.findViewById(R.id.rv_notification);
         notificationArrayList = new ArrayList<>();
-        manager = new LinearLayoutManager(getContext());
-        rvnotification.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvnotification.setHasFixedSize(true);
+        rvNotification.setLayoutManager(new LinearLayoutManager(getContext()));
         getNotificationList();
         return view;
     }
 
     public void getNotificationList() {
-
-        notificationListCall = apiServices.getNotificationList();
+        Call<NotificationList> notificationListCall = ApiClients.getClients().create(ApiServices.class).getNotificationList();
         notificationListCall.enqueue(new Callback<NotificationList>() {
             @Override
             public void onResponse(Call<NotificationList> call, Response<NotificationList> response) {
-                if (response.isSuccessful()){
-                    if (response.body().getSuccess() == 1){
-                        int size=response.body().getNotificationArrayList().size();
-                        if (size>0){
-                            notificationArrayList.addAll(response.body().getNotificationArrayList());
-                            adapter = new NotificationAdapter(getContext(), notificationArrayList);
-                            rvnotification.setAdapter(adapter);
-                            adapter.notifyDataSetChanged();
+                if (response.isSuccessful()) {
+                    if (response.body().getNotificationArrayList()!=null) {
+                        int size = response.body().getNotificationArrayList().size();
+                        for (int i = 0; i < size; i++) {
+                            if (flag == true) {
+                                notificationArrayList.add(response.body().getNotificationArrayList().get(i));
+                            } else {
+                                if (response.body().getNotificationArrayList().get(i).getNtype().contentEquals("Student")) {
+                                    notificationArrayList.add(response.body().getNotificationArrayList().get(i));
+                                }
+                            }
                         }
-                        else {
-                            // showing message if size is 0
-                            Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }else {
-                        //data not available
-                        Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        adapter = new NotificationAdapter(getContext(), notificationArrayList);
+                        rvNotification.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
                     }
                 } else {
                     //failure api response
                     Toast.makeText(getContext(), "Something went wrong, try again", Toast.LENGTH_SHORT).show();
                 }
-
             }
+
             @Override
             public void onFailure(Call<NotificationList> call, Throwable t) {
-
                 Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.i(TAG, "onfailure:" + t.getMessage());
+                Log.i(TAG, "onFailure:" + t.getMessage());
             }
         });
     }

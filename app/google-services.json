@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "601717581739",
+    "firebase_url": "https://sjc-app-b4747.firebaseio.com",
+    "project_id": "sjc-app-b4747",
+    "storage_bucket": "sjc-app-b4747.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601717581739:android:64778791e1af8a92dc94ee",
+        "android_client_info": {
+          "package_name": "com.integro.sjc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601717581739-0o2u832e97vvceuh064il976lq9tnpos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl0BxV2dMxdGa-GGS_Q5ONwTOayuRmITE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601717581739-0o2u832e97vvceuh064il976lq9tnpos.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cr_notification"
@@ -31,7 +31,7 @@
                 android:paddingTop="5sp"
                 android:text="Date"
                 android:fontFamily="@font/ebgaramond_regular"
-                android:textColor="@color/cardview_dark_background"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
@@ -41,9 +41,9 @@
                 android:gravity="start|top"
                 android:paddingLeft="8sp"
                 android:paddingBottom="10sp"
-                android:textColor="@color/colorWhite"
                 android:paddingRight="10sp"
                 android:text="Title"
+                android:textColor="@color/design_default_color_error"
                 android:fontFamily="@font/ebgaramond_regular"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
@@ -53,7 +53,7 @@
                 android:layout_height="1sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
-                android:background="@color/colorWhite" />
+                android:background="@color/colorPrimary" />
 
 
             <TextView
@@ -66,6 +66,7 @@
                 android:paddingRight="10sp"
                 android:paddingBottom="10sp"
                 android:text="Discription"
+                android:textColor="@color/black"
                 android:fontFamily="@font/ebgaramond_regular"
                 android:textSize="18sp" />
 

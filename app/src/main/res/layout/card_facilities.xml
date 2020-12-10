@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cr_Facilities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="5dp"
         app:cardElevation="3dp"
-        android:layout_margin="5dp">
+        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_margin="5dp"
+        app:contentPaddingBottom="10sp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/colorWhite">
 
             <ImageView
                 android:id="@+id/iv_Fimage"

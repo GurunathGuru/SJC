@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,8 +16,9 @@ import androidx.fragment.app.Fragment;
 import com.github.demono.AutoScrollViewPager;
 import com.integro.sjc.AboutSjcActivity;
 import com.integro.sjc.AnnouncementsActivity;
+import com.integro.sjc.DepartmentActivity;
 import com.integro.sjc.LoginActivity;
-import com.integro.sjc.OurCoursesActivity;
+import com.integro.sjc.MainActivity;
 import com.integro.sjc.PlacementActivity;
 import com.integro.sjc.R;
 import com.integro.sjc.WebActivity;
@@ -47,12 +49,12 @@ public class HomeFragment extends Fragment {
     private ArrayList<CoverPhotos> coverPhotosArrayList;
     private CoverPhotosViewPagerAdapter coverPhotosViewPagerAdapter;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         vpNews = v.findViewById(R.id.vpNews);
+        vpNews.setCycle(true);
         newsArrayList = new ArrayList<>();
 
         av_imageView = v.findViewById(R.id.av_imageView);
@@ -63,14 +65,12 @@ public class HomeFragment extends Fragment {
 
         TextView tvAnnouncements = v.findViewById(R.id.tv_Announcements);
         TextView tvAboutSjc = v.findViewById(R.id.tv_AboutSjc);
-        TextView tvOurCourses = v.findViewById(R.id.tv_OurCourses);
-        TextView tvOurCourses1 = v.findViewById(R.id.tv_OurCourses1);
+        LinearLayout tvOurCourses = v.findViewById(R.id.llOurCourses);
         TextView tvPlacement = v.findViewById(R.id.tvPlacement);
         TextView tvScholarships = v.findViewById(R.id.tvScholarships);
         TextView tvOnlineClasses = v.findViewById(R.id.tvOnlineClasses);
         TextView tvSchool = v.findViewById(R.id.tvSchool);
-        TextView tvLogin= v.findViewById(R.id.tvLogin);
-
+        TextView tvLogin = v.findViewById(R.id.tvLogin);
 
         tvAboutSjc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,18 +83,12 @@ public class HomeFragment extends Fragment {
         tvOurCourses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentOurCourses = new Intent(getContext(), OurCoursesActivity.class);
-                startActivity(intentOurCourses);
+                Intent intent = new Intent(getContext(), WebActivity.class);
+                intent.putExtra("TAG", "https://www.sjc.ac.in/courses.php");
+                startActivity(intent);
             }
         });
 
-        tvOurCourses1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentOurCourses1 = new Intent(getContext(), OurCoursesActivity.class);
-                startActivity(intentOurCourses1);
-            }
-        });
         tvAnnouncements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,8 +118,7 @@ public class HomeFragment extends Fragment {
         tvSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), WebActivity.class);
-                intent.putExtra("TAG", "https://www.sjc.ac.in/department_main.php");
+                Intent intent = new Intent(getContext(), DepartmentActivity.class);
                 startActivity(intent);
             }
         });
@@ -133,9 +126,8 @@ public class HomeFragment extends Fragment {
         tvOnlineClasses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), WebActivity.class);
-                intent.putExtra("TAG", "https://www.example.com");
-                startActivity(intent);
+
+                Toast.makeText(getContext(), "coming soon", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -170,9 +162,10 @@ public class HomeFragment extends Fragment {
                     newsArrayList.addAll(response.body().getNewsArrayList());
                     newsViewPagerAdapter = new NewsViewPagerAdapter(getContext(), newsArrayList);
                     vpNews.setAdapter(newsViewPagerAdapter);
-                    vpNews.startAutoScroll();
+                    vpNews.startAutoScroll(3000);
                 }
             }
+
             @Override
             public void onFailure(Call<NewsList> call, Throwable t) {
                 Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -206,6 +199,7 @@ public class HomeFragment extends Fragment {
                     av_imageView.setCycle(true);
                 }
             }
+
             @Override
             public void onFailure(Call<CoverPhotosList> call, Throwable t) {
                 Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();

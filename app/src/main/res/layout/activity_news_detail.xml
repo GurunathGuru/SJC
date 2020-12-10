@@ -22,11 +22,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
                 <com.github.demono.AutoScrollViewPager
                     android:id="@+id/vp_news"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" />
-
+                    android:layout_height="250dp" />
 
                 <TextView
                     android:id="@+id/tv_date"
@@ -76,7 +76,7 @@
                     android:minLines="2"
                     android:padding="5sp"
                     android:text="SHARE"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/design_default_color_error"
                     android:textSize="13sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

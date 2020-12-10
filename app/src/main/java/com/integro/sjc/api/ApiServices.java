@@ -6,10 +6,12 @@ import com.integro.sjc.model.CoverPhotos;
 import com.integro.sjc.model.CoverPhotosList;
 import com.integro.sjc.model.Department2List;
 import com.integro.sjc.model.DepartmentList;
+import com.integro.sjc.model.DistinguishAlumniList;
 import com.integro.sjc.model.EventsList;
 import com.integro.sjc.model.FacilitiesList;
 import com.integro.sjc.model.GalleryAlbumList;
 import com.integro.sjc.model.GalleryImagesList;
+import com.integro.sjc.model.GratitudeList;
 import com.integro.sjc.model.NewsImagesList;
 import com.integro.sjc.model.NewsList;
 import com.integro.sjc.model.NotificationList;
@@ -68,4 +70,10 @@ public interface ApiServices {
 
     @GET("sjc_cphotos.php")
     Call<CoverPhotosList> getCoverPhotosList();
+
+    @GET("sjc_gratitude.php")
+    Call<GratitudeList> getGratitudeList();
+
+    @GET("sjc_distinguishalumni.php")
+    Call<DistinguishAlumniList> getDistinguishAlumniList();
 }

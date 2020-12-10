@@ -5,8 +5,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.integro.sjc.adapters.DepartmentAdapter;
 import com.integro.sjc.api.ApiClients;
@@ -43,20 +43,22 @@ public class DepartmentActivity extends AppCompatActivity {
         departmentListCall.enqueue(new Callback<DepartmentList>() {
             @Override
             public void onResponse(Call<DepartmentList> call, Response<DepartmentList> response) {
-                if (response.isSuccessful()) {
-                    int size = response.body().getDepartmentArrayList().size();
-                    Log.i(TAG, "onResponse: size " + size);
-                    if (size > 0) {
-                        departmentArrayList.addAll(response.body().getDepartmentArrayList());
-                        rvDepartment.setLayoutManager(new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL));
-                        departmentAdapter = new DepartmentAdapter(getApplicationContext(), departmentArrayList);
-                        rvDepartment.setAdapter(departmentAdapter);
-                        rvDepartment.setHasFixedSize(true);
-                    } else {
-                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                if (!response.isSuccessful()) {
+                    return;
+                }
+                if (response.body().getDepartmentArrayList() == null) {
+                    return;
+                }
+                int size = response.body().getDepartmentArrayList().size();
+                Log.i(TAG, "onResponse: size " + size);
+                if (size > 0) {
+                    departmentArrayList.addAll(response.body().getDepartmentArrayList());
+                    rvDepartment.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    departmentAdapter = new DepartmentAdapter(getApplicationContext(), departmentArrayList);
+                    rvDepartment.setAdapter(departmentAdapter);
+                    rvDepartment.setHasFixedSize(true);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Something went wrong, try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
