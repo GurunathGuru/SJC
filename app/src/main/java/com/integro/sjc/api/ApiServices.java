@@ -2,14 +2,13 @@ package com.integro.sjc.api;
 
 import com.integro.sjc.model.AboutSjcList;
 import com.integro.sjc.model.AnnouncementsList;
-import com.integro.sjc.model.CoverPhotos;
 import com.integro.sjc.model.CoverPhotosList;
 import com.integro.sjc.model.Department2List;
 import com.integro.sjc.model.DepartmentList;
 import com.integro.sjc.model.DistinguishAlumniList;
 import com.integro.sjc.model.EventsList;
 import com.integro.sjc.model.FacilitiesList;
-import com.integro.sjc.model.GalleryAlbumList;
+import com.integro.sjc.model.GalleryList;
 import com.integro.sjc.model.GalleryImagesList;
 import com.integro.sjc.model.GratitudeList;
 import com.integro.sjc.model.NewsImagesList;
@@ -17,6 +16,7 @@ import com.integro.sjc.model.NewsList;
 import com.integro.sjc.model.NotificationList;
 import com.integro.sjc.model.OurCoursesList;
 import com.integro.sjc.model.PlacementList;
+import com.integro.sjc.model.PrincipalMessageList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -53,7 +53,7 @@ public interface ApiServices {
     Call<Department2List> getDepartment2List(@Field("d_id")String d_id);
 
     @GET("sjc_gallery.php")
-    Call<GalleryAlbumList>getGalleryAlbumList();
+    Call<GalleryList>getGalleryAlbumList();
 
     @FormUrlEncoded
     @POST("sjc_galleryimages.php")
@@ -76,4 +76,7 @@ public interface ApiServices {
 
     @GET("sjc_distinguishalumni.php")
     Call<DistinguishAlumniList> getDistinguishAlumniList();
+
+    @GET("sjc_principalmsg.php")
+    Call<PrincipalMessageList> getPrincipalMessageList();
 }

@@ -23,6 +23,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0sp"
+            android:onClick="principalMessage"
             android:layout_margin="5sp"
             android:layout_weight="1.5"
             app:cardBackgroundColor="@color/colorPrimary"

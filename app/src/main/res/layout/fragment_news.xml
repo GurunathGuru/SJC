@@ -281,7 +281,6 @@
                             android:visibility="gone" />
 
                         <TextView
-                            android:id="@+id/tvReadMore"
                             android:layout_width="match_parent"
                             android:layout_height="0sp"
                             android:layout_weight="0.80"

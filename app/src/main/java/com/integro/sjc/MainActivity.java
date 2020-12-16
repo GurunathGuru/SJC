@@ -192,7 +192,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tvGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "coming soon", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "coming soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), GalleryAlbumActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -264,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                        Log.i(TAG, "onComplete: "+user);
+                                        Log.i(TAG, "onComplete: " + user);
                                         if (user != null) {
                                             startActivity(getBaseContext().getPackageManager()
                                                     .getLaunchIntentForPackage(getBaseContext().getPackageName())
@@ -332,5 +334,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 });
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+
+    public void principalMessage(View view) {
+        Intent intent = new Intent(getApplicationContext(), PrincipalMessageActivity.class);
+        startActivity(intent);
     }
 }

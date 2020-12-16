@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class GalleryAlbumList {
+public class GalleryList {
 
     private String success;
 
     @SerializedName("sjc_gallery")
-    private ArrayList<GalleryAlbum> galleryAlbumArrayList;
+    private ArrayList<Gallery> galleryArrayList;
 
     private String message;
 
@@ -23,12 +23,12 @@ public class GalleryAlbumList {
         this.success = success;
     }
 
-    public ArrayList<GalleryAlbum> getGalleryAlbumArrayList() {
-        return galleryAlbumArrayList;
+    public ArrayList<Gallery> getGalleryArrayList() {
+        return galleryArrayList;
     }
 
-    public void setGalleryAlbumArrayList(ArrayList<GalleryAlbum> galleryAlbumArrayList) {
-        this.galleryAlbumArrayList = galleryAlbumArrayList;
+    public void setGalleryArrayList(ArrayList<Gallery> galleryArrayList) {
+        this.galleryArrayList = galleryArrayList;
     }
 
     public String getMessage ()

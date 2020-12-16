@@ -45,18 +45,14 @@ dependencies {
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
-//load image
+    //load image
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-
     //web load
     implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
-
     implementation 'com.victor:lib:1.0.4'
-
     implementation 'com.github.demoNo:AutoScrollViewPager:v1.0.2'
-
     implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:1.0.16'
-
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
 }

@@ -6,50 +6,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.integro.sjc.GalleryImagesActivity;
+import com.integro.sjc.GalleryFullImageActivity;
 import com.integro.sjc.R;
-import com.integro.sjc.model.GalleryAlbum;
-
-import org.w3c.dom.Text;
+import com.integro.sjc.model.Gallery;
 
 import java.util.ArrayList;
 
 public class GalleryAlbumAdapter extends RecyclerView.Adapter<GalleryAlbumAdapter.MyViewHolder> {
 
     Context context;
-    ArrayList<GalleryAlbum> galleryAlbumArrayList;
+    ArrayList<Gallery> galleryArrayList;
 
-    public GalleryAlbumAdapter(Context context, ArrayList<GalleryAlbum> galleryAlbumArrayList) {
+    public GalleryAlbumAdapter(Context context, ArrayList<Gallery> galleryArrayList) {
         this.context = context;
-        this.galleryAlbumArrayList = galleryAlbumArrayList;
+        this.galleryArrayList = galleryArrayList;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.card_gallery,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.card_gallery, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        GalleryAlbum album=galleryAlbumArrayList.get(position);
+        Gallery album = galleryArrayList.get(position);
 
-        holder.tvTitle.setText(album.getTitle());
         Glide.with(context).load(album.getImage()).into(holder.ivImage);
 
-        holder.cvAlbum.setOnClickListener(new View.OnClickListener() {
+        holder.ivImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context, GalleryImagesActivity.class);
-                intent.putExtra("itemId",album.getId());
+                Intent intent = new Intent(context, GalleryFullImageActivity.class);
+                intent.putExtra("itemId", album.getId());
+                intent.putExtra("position", position);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
@@ -58,21 +54,17 @@ public class GalleryAlbumAdapter extends RecyclerView.Adapter<GalleryAlbumAdapte
 
     @Override
     public int getItemCount() {
-        return galleryAlbumArrayList.size();
+        return galleryArrayList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        CardView cvAlbum;
         ImageView ivImage;
-        TextView tvTitle;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            cvAlbum=itemView.findViewById(R.id.cvAlbum);
-            ivImage=itemView.findViewById(R.id.ivImage);
-            tvTitle=itemView.findViewById(R.id.tvTitle);
+            ivImage = itemView.findViewById(R.id.ivImage);
         }
     }
 }

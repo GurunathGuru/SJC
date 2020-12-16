@@ -33,11 +33,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0sp"
-                android:gravity="bottom|end"
-                android:paddingRight="50sp"
-                android:layout_marginBottom="15sp"
                 android:layout_gravity="bottom|end"
-                android:layout_weight="1">
+                android:layout_marginBottom="15sp"
+                android:layout_weight="1"
+                android:gravity="bottom|end"
+                android:paddingRight="50sp">
 
                 <ImageView
                     android:layout_width="90sp"
@@ -80,10 +80,10 @@
                             android:paddingLeft="20sp"
                             android:text="OUR"
                             android:textColor="@color/colorWhite"
-                            android:textSize="16sp" />
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/tv_OurCourses1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/ebgaramond_regular"
@@ -91,7 +91,8 @@
                             android:paddingLeft="20sp"
                             android:text="COURSES"
                             android:textColor="@color/black"
-                            android:textSize="20sp" />
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -224,11 +225,11 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:scaleType="centerCrop"
-                    android:paddingTop="10sp"
-                    android:layout_margin="2sp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/merry_christmas1"/>
+                    android:layout_margin="2sp"
+                    android:padding="25sp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/marry_christmas4" />
 
                 <View
                     android:layout_width="match_parent"
