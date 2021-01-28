@@ -59,21 +59,11 @@
                         android:gravity="center|start"
                         android:paddingLeft="10sp"
                         android:fontFamily="@font/ebgaramond_regular"
-                        android:text="Fr.Dr. Victor Lobo, SJ,"
+                        android:text="Management"
                         android:textColor="@color/colorWhite"
                         android:textStyle="bold"
                         android:textSize="20sp"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center|start"
-                        android:paddingLeft="10sp"
-                        android:fontFamily="@font/ebgaramond_regular"
-                        android:text="Principal"
-                        android:textColor="@color/colorWhite"
-                        android:textStyle="bold"
-                        android:textSize="18sp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
@@ -82,7 +72,7 @@
                         android:paddingRight="10sp"
                         android:fontFamily="@font/ebgaramond_regular"
                         android:layout_toRightOf="@+id/president_img"
-                        android:text="View Message..!"
+                        android:text="View More..!"
                         android:textColor="@color/colorWhite" />
                 </LinearLayout>
             </LinearLayout>
@@ -97,6 +87,7 @@
             android:layout_marginRight="5sp"
             android:layout_marginBottom="5sp"
             android:layout_weight="1"
+            android:onClick="getNewsLetterList"
             android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="@font/ebgaramond_regular"
             android:gravity="center|start"

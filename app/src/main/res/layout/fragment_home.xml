@@ -231,10 +231,10 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/marry_christmas4" />
 
-                <View
+                <com.github.demono.AutoScrollViewPager
+                    android:id="@+id/vpBanner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border_gold" />
+                    android:layout_height="match_parent" />
             </androidx.cardview.widget.CardView>
 
 

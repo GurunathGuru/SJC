@@ -31,9 +31,9 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class NotificationFragment extends Fragment {
 
-    RecyclerView rvNotification;
-    NotificationAdapter adapter;
-    ArrayList<Notification> notificationArrayList;
+    private RecyclerView rvNotification;
+    private NotificationAdapter adapter;
+    private ArrayList<Notification> notificationArrayList;
     private boolean flag = false;
 
     public NotificationFragment() {

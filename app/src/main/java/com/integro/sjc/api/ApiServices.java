@@ -2,6 +2,7 @@ package com.integro.sjc.api;
 
 import com.integro.sjc.model.AboutSjcList;
 import com.integro.sjc.model.AnnouncementsList;
+import com.integro.sjc.model.BannerList;
 import com.integro.sjc.model.CoverPhotosList;
 import com.integro.sjc.model.Department2List;
 import com.integro.sjc.model.DepartmentList;
@@ -12,6 +13,7 @@ import com.integro.sjc.model.GalleryList;
 import com.integro.sjc.model.GalleryImagesList;
 import com.integro.sjc.model.GratitudeList;
 import com.integro.sjc.model.NewsImagesList;
+import com.integro.sjc.model.NewsLetterList;
 import com.integro.sjc.model.NewsList;
 import com.integro.sjc.model.NotificationList;
 import com.integro.sjc.model.OurCoursesList;
@@ -79,4 +81,10 @@ public interface ApiServices {
 
     @GET("sjc_principalmsg.php")
     Call<PrincipalMessageList> getPrincipalMessageList();
+
+    @GET("sjc_banner.php")
+    Call<BannerList> getBannerList();
+
+    @GET("sjc_newsletter.php")
+    Call<NewsLetterList> getNewsLetterList();
 }

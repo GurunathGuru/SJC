@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="3.5">
+    android:weightSum="3">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_weight="2.2"
+        android:layout_weight="2"
         android:background="@color/colorWhite"
         android:orientation="vertical"
         android:weightSum="2">
@@ -17,83 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0sp"
-            android:layout_weight="0.5"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0sp"
-                android:layout_weight="0.5"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                tools:ignore="NestedWeights">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:ignore="UselessParent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.3"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-
-                        <View
-                            android:layout_width="0sp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="@color/colorWhite" />
-
-                        <View
-                            android:layout_width="0sp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@color/colorYellow"
-                            android:gravity="center"
-                            android:textColor="@color/colorWhite" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="15sp"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-
-                        <ImageView
-                            android:layout_width="0sp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.75"
-                            android:gravity="center"
-                            android:src="@drawable/sjclogo1" />
-
-                        <TextView
-                            android:id="@+id/tvEvents"
-                            android:layout_width="0sp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/border_white"
-                            android:fontFamily="@font/ebgaramond_regular"
-                            android:gravity="center"
-                            android:onClick="events"
-                            android:text="UPCOMING EVENTS"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-                </RelativeLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:layout_weight="1.5"
+            android:layout_weight="2"
             android:background="@color/colorWhite"
             android:orientation="horizontal"
             android:weightSum="2">
@@ -142,7 +65,16 @@
                         android:layout_weight="1.86"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:weightSum="3">
+                        android:weightSum="4">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0sp"
+                            android:layout_weight="1"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:padding="15sp"
+                            android:src="@drawable/sjclogo1" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -156,8 +88,7 @@
                             <com.github.demono.AutoScrollViewPager
                                 android:id="@+id/vpAlumni"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"/>
-
+                                android:layout_height="match_parent" />
                         </RelativeLayout>
 
                         <LinearLayout
@@ -200,7 +131,7 @@
             <LinearLayout
                 android:layout_width="0sp"
                 android:layout_height="match_parent"
-                android:layout_weight="01"
+                android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:orientation="horizontal"
                 android:weightSum="2">
@@ -209,29 +140,54 @@
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.875"
-                    android:background="@color/colorYellow"
+                    android:background="@color/white"
                     android:orientation="vertical"
-                    android:weightSum="3">
-
-                    <TextView
-                        android:id="@+id/tvOutReach"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.5"
-                        android:fontFamily="@font/ebgaramond_regular"
-                        android:gravity="center"
-                        android:text="OUT REACH"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18sp" />
+                    android:weightSum="6">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
-                        android:layout_weight="2.5"
-                        android:onClick="gratitude"
-                        android:background="@color/colorWhite"
+                        android:layout_weight="2"
                         android:orientation="vertical"
-                        android:weightSum="3.5">
+                        android:padding="15sp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tvEvents"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="7.5sp"
+                            android:layout_weight="1"
+                            android:background="@color/colorYellow"
+                            android:fontFamily="@font/ebgaramond_regular"
+                            android:gravity="center"
+                            android:onClick="events"
+                            android:text="UPCOMING EVENTS"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tvOutReach"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="7.5sp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:fontFamily="@font/ebgaramond_regular"
+                            android:gravity="center"
+                            android:text="OUT REACH"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0sp"
+                        android:layout_weight="4"
+                        android:background="@color/colorWhite"
+                        android:onClick="gratitude"
+                        android:orientation="vertical"
+                        android:weightSum="4.5">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -247,9 +203,9 @@
                             android:id="@+id/vpGratitude"
                             android:layout_width="match_parent"
                             android:layout_height="0sp"
-                            android:onClick="gratitude"
                             android:layout_marginRight="2sp"
-                            android:layout_weight="1.70" />
+                            android:layout_weight="2"
+                            android:onClick="gratitude" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -258,6 +214,7 @@
                             android:fontFamily="@font/ebgaramond_regular"
                             android:gravity="start|center"
                             android:maxLines="1"
+                            android:paddingBottom="10sp"
                             android:text="@string/title"
                             android:textColor="@color/colorPrimary"
                             android:textSize="18sp" />
@@ -271,19 +228,19 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="0sp"
-                            android:layout_weight="0.65"
+                            android:layout_weight="1"
                             android:fontFamily="@font/ebgaramond_regular"
-                            android:gravity="start"
+                            android:gravity="start|center"
                             android:maxLines="3"
-                            android:text="@string/description"
-                            android:textColor="#000"
-                            android:textSize="15sp"
-                            android:visibility="gone" />
+                            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="0sp"
-                            android:layout_weight="0.80"
+                            android:layout_weight="0.5"
                             android:fontFamily="@font/ebgaramond_regular"
                             android:gravity="end|center"
                             android:paddingRight="10sp"
@@ -319,8 +276,6 @@
                         android:background="@color/colorPrimary" />
                 </LinearLayout>
             </LinearLayout>
-
-
         </LinearLayout>
     </LinearLayout>
 
@@ -360,13 +315,12 @@
             android:text="ASSOCIATIONS"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0sp"
-        android:layout_weight="1"
+        android:layout_weight="0.7"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:paddingLeft="15sp"

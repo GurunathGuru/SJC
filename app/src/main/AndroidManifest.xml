@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PrincipalMessageActivity"></activity>
+        <activity android:name=".NewsLetterActivity"></activity>
+        <activity android:name=".PrincipalMessageActivity" />
         <activity android:name=".GalleryFullImageActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".AlumniActivity" />

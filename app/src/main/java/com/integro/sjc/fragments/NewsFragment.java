@@ -36,14 +36,14 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class NewsFragment extends Fragment {
 
-    AutoScrollViewPager vpGratitude;
-    ArrayList<Gratitude> gratitudeArrayList;
-    GratitudeAdapter adapter;
+    private AutoScrollViewPager vpGratitude;
+    private ArrayList<Gratitude> gratitudeArrayList;
+    private GratitudeAdapter adapter;
 
-    AutoScrollViewPager vpAlumni;
-    ArrayList<DistinguishAlumni> distinguishAlumniArrayList;
-    AlumniAdapter alumniAdapter;
-    String flog;
+    private AutoScrollViewPager vpAlumni;
+    private ArrayList<DistinguishAlumni> distinguishAlumniArrayList;
+    private AlumniAdapter alumniAdapter;
+    private String flog;
     private Intent intent;
 
     @Override
@@ -112,9 +112,6 @@ public class NewsFragment extends Fragment {
         tvAchievements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*intent = new Intent(getContext(), WebActivity.class);
-                intent.putExtra("TAG", "https://www.example.com");
-                startActivity(intent);*/
                 Toast.makeText(getContext(), "coming soon", Toast.LENGTH_SHORT).show();
             }
         });
@@ -122,9 +119,6 @@ public class NewsFragment extends Fragment {
         llSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* intent = new Intent(getContext(), WebActivity.class);
-                intent.putExtra("TAG", "https://www.example.com");
-                startActivity(intent);*/
                 Toast.makeText(getContext(), "coming soon", Toast.LENGTH_SHORT).show();
             }
         });

@@ -22,10 +22,13 @@ import com.integro.sjc.MainActivity;
 import com.integro.sjc.PlacementActivity;
 import com.integro.sjc.R;
 import com.integro.sjc.WebActivity;
+import com.integro.sjc.adapters.BannerViewPagerAdapter;
 import com.integro.sjc.adapters.CoverPhotosViewPagerAdapter;
 import com.integro.sjc.adapters.NewsViewPagerAdapter;
 import com.integro.sjc.api.ApiClients;
 import com.integro.sjc.api.ApiServices;
+import com.integro.sjc.model.Banner;
+import com.integro.sjc.model.BannerList;
 import com.integro.sjc.model.CoverPhotos;
 import com.integro.sjc.model.CoverPhotosList;
 import com.integro.sjc.model.News;
@@ -49,6 +52,10 @@ public class HomeFragment extends Fragment {
     private ArrayList<CoverPhotos> coverPhotosArrayList;
     private CoverPhotosViewPagerAdapter coverPhotosViewPagerAdapter;
 
+    private AutoScrollViewPager vpBanner;
+    private ArrayList<Banner> bannerArrayList;
+    private BannerViewPagerAdapter bannerViewPagerAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
@@ -59,9 +66,15 @@ public class HomeFragment extends Fragment {
 
         av_imageView = v.findViewById(R.id.av_imageView);
         coverPhotosArrayList = new ArrayList<>();
+        av_imageView.setCycle(true);
+
+        vpBanner = v.findViewById(R.id.vpBanner);
+        bannerArrayList = new ArrayList<>();
+        vpBanner.setCycle(true);
 
         getNewsList();
         getCoverPhotosList();
+        getBannerList();
 
         TextView tvAnnouncements = v.findViewById(R.id.tv_Announcements);
         TextView tvAboutSjc = v.findViewById(R.id.tv_AboutSjc);
@@ -202,6 +215,39 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<CoverPhotosList> call, Throwable t) {
+                Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "onfailure:" + t.getMessage());
+            }
+        });
+    }
+
+    public void getBannerList() {
+        Call<BannerList> bannerListCall = ApiClients.getClients().create(ApiServices.class).getBannerList();
+        bannerListCall.enqueue(new Callback<BannerList>() {
+            @Override
+            public void onResponse(Call<BannerList> call, Response<BannerList> response) {
+                Log.i("onResponse", "" + response.isSuccessful());
+                if (!response.isSuccessful()) {
+                    Log.i(TAG, "onResponse: fail");
+                    return;
+                }
+                if (response.body().getBannerArrayList() == null) {
+                    Log.i(TAG, "onResponse: null");
+                    return;
+                }
+                int size = response.body().getBannerArrayList().size();
+                Log.i(TAG, "onResponse from home page: size " + size);
+
+                if (size > 0) {
+                    bannerArrayList.addAll(response.body().getBannerArrayList());
+                    bannerViewPagerAdapter = new BannerViewPagerAdapter(getContext(), bannerArrayList);
+                    vpBanner.setAdapter(bannerViewPagerAdapter);
+                    vpBanner.startAutoScroll(3000);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BannerList> call, Throwable t) {
                 Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "onfailure:" + t.getMessage());
             }

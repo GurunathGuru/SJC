@@ -2,6 +2,7 @@ package com.integro.sjc;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Build;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -31,6 +33,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.common.IntentSenderForResultStarter;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -47,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static boolean flag = false;
     private TextView btnVIP, btnLogout;
     private FirebaseAuth firebaseAuth;
+
+    private int REQUEST_CODE = 11;
 
     @Override
     protected void onStart() {
@@ -76,6 +87,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //remote update
+        AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
+        com.google.android.play.core.tasks.Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+        appUpdateInfoTask.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+                if (result.updateAvailability()==UpdateAvailability.UPDATE_AVAILABLE
+                    && result.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)){
+                    try {
+                        appUpdateManager.startUpdateFlowForResult(result,AppUpdateType.FLEXIBLE, MainActivity.this,REQUEST_CODE);
+                    } catch (IntentSender.SendIntentException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseMessaging.getInstance().subscribeToTopic("sjc");
 
@@ -91,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         FirebaseMessaging.getInstance().subscribeToTopic("sjc");
 
-        TextView tvDepartment = findViewById(R.id.tv_department);
         TextView tvContactUs = findViewById(R.id.tv_contactus);
         ImageView ivCall = findViewById(R.id.iv_call);
         ImageView ivFacebook = findViewById(R.id.iv_facebook);
@@ -155,8 +182,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                final CharSequence[] phone = new CharSequence[]{"7676759199"};
-                String phone1 = "7676759199";
+                final CharSequence[] phone = new CharSequence[]{"+917676759199"};
+                String phone1 = "+917676759199";
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone1, null));
                 startActivity(intentCall);
             }
@@ -179,13 +206,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String url = "https://www.facebook.com/sjcbengaluru";
                 intent4.putExtra("TAG", url);
                 startActivity(intent4);
-            }
-        });
-
-        tvDepartment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "coming soon", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -215,12 +235,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (firebaseAuth.getCurrentUser() != null) {
-                    firebaseAuth.signOut();
-                    startActivity(getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName())
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                }
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("Logout")
+                        .setMessage("Do you really want to Logout..?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                if (firebaseAuth.getCurrentUser() != null) {
+                                    firebaseAuth.signOut();
+                                    startActivity(getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName())
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                                }
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
             }
         });
     }
@@ -288,13 +321,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
         View view = getLayoutInflater().inflate(R.layout.dilouge_contact_us, null);
         dialogBuilder.setView(view);
-        TextView tvAddress = view.findViewById(R.id.tv_Address);
         Button btnMap = view.findViewById(R.id.btn_Map);
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(MainActivity.this, "Coming Soon..!", Toast.LENGTH_SHORT).show();
                 String Map = "SJC";
                 String uri = "https://www.google.com/maps/place/St.+Joseph's+College/@12.962323,77.59643,16z/data=!4m5!3m4!1s0x0:0xdec852132523ceae!8m2!3d12.962323!4d77.5964302?hl=en-IN" + Map;
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
@@ -321,23 +352,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void onBackPressed() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        alertDialogBuilder.setTitle("Exit");
-        AlertDialog.Builder builder = alertDialogBuilder.setMessage("Do you really want to exit?").setCancelable(false)
+        alertDialogBuilder.setTitle("Exit")
+                .setMessage("Do you really want to exit?")
+                .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         System.exit(0);
                     }
                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
 
     public void principalMessage(View view) {
         Intent intent = new Intent(getApplicationContext(), PrincipalMessageActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==REQUEST_CODE){
+            Toast.makeText(this, "Start Downloading", Toast.LENGTH_SHORT).show();
+
+            if (resultCode !=RESULT_OK){
+                Log.d(TAG, " UpDate Flow Fail "+resultCode);
+            }
+        }
+    }
+
+    public void getNewsLetterList(View view) {
+        Intent intent=new Intent(getApplicationContext(),NewsLetterActivity.class);
         startActivity(intent);
     }
 }
