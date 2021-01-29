@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //remote update
+       /* //remote update
         AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
         com.google.android.play.core.tasks.Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
         appUpdateInfoTask.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 }
             }
-        });
+        });*/
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseMessaging.getInstance().subscribeToTopic("sjc");

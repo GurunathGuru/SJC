@@ -7,7 +7,7 @@ android {
         applicationId "com.integro.sjc"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 6
+        versionCode 7
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
