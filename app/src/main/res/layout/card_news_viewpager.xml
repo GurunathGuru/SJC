@@ -27,7 +27,7 @@
         android:paddingRight="10sp"
         android:text="TORIES HAVE A POWERFULL"
         android:textColor="@color/colorWhite"
-        android:textSize="15sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:layout_width="match_parent"

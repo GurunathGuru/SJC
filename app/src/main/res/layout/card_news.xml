@@ -34,7 +34,7 @@
                 android:paddingRight="10dp"
                 android:text="date"
                 android:textColor="@color/cardview_dark_background"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -45,7 +45,7 @@
                 android:padding="10dp"
                 android:text="Title"
                 android:textAppearance="@style/CustomTextAppearance"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -60,7 +60,7 @@
                 android:paddingBottom="10sp"
                 android:text="Description"
                 android:textColor="@color/cardview_dark_background"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                 android:paddingBottom="10sp"
                 android:text="Read More..."
                 android:textColor="@color/design_default_color_error"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

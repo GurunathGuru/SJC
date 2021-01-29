@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:onClick="alumni"
+    android:orientation="vertical"
     android:weightSum="2">
 
     <ImageView
@@ -21,13 +21,13 @@
         android:background="@color/colorWhite"
         android:fontFamily="@font/ebgaramond_regular"
         android:gravity="start|center"
-        android:minLines="2"
         android:maxLines="2"
+        android:minLines="2"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
         android:text="@string/title"
-        android:textColor="@color/black"
-        android:textSize="13sp" />
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_description"
@@ -36,12 +36,12 @@
         android:background="@color/colorWhite"
         android:fontFamily="@font/ebgaramond_regular"
         android:gravity="start|center"
+        android:maxLines="4"
         android:minLines="2"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
         android:paddingBottom="5sp"
-        android:maxLines="4"
         android:text="@string/title"
-        android:textColor="@color/colorPrimary"
-        android:textSize="10sp" />
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 </LinearLayout>

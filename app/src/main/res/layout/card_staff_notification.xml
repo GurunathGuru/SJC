@@ -45,7 +45,7 @@
                 android:text="Title"
                 android:textColor="@color/design_default_color_error"
                 android:fontFamily="@font/ebgaramond_regular"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"/>
 
             <View
@@ -68,7 +68,7 @@
                 android:text="Discription"
                 android:textColor="@color/black"
                 android:fontFamily="@font/ebgaramond_regular"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

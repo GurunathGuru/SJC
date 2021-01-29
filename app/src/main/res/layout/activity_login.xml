@@ -37,7 +37,7 @@
                 android:gravity="center"
                 android:text="FACULTY LOGIN"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -70,7 +70,7 @@
                 android:gravity="center"
                 android:text="STUDENT LOGIN"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -103,7 +103,7 @@
                 android:gravity="center"
                 android:text="PARENT LOGIN"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -136,7 +136,7 @@
                 android:gravity="center"
                 android:text="ADMISSION LOGIN"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

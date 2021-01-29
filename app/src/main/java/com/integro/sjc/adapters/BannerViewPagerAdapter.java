@@ -2,11 +2,13 @@ package com.integro.sjc.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -24,6 +26,7 @@ public class BannerViewPagerAdapter extends PagerAdapter {
 
     Context context;
     ArrayList<Banner> bannerArrayList;
+    private static final String TAG = "BannerViewPagerAdapter";
 
     public BannerViewPagerAdapter(Context context, ArrayList<Banner> bannerArrayList) {
         this.context = context;
@@ -47,20 +50,42 @@ public class BannerViewPagerAdapter extends PagerAdapter {
         View view = LayoutInflater.from(context).inflate(R.layout.card_cover_vp_photos, container, false);
 
         ImageView ivImage = view.findViewById(R.id.ivImage);
-        Glide.with(context)
-                .load(bannerArrayList.get(position).getImage())
-                .into(ivImage);
+        TextView tvTitle = view.findViewById(R.id.tvTitle);
 
-        ivImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, WebActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("TAG", bannerArrayList.get(position).getWeblink());
-                context.startActivity(intent);
-            }
-        });
+        Log.d(TAG, "instantiateItem: title " + bannerArrayList.get(position).getTitle());
+        Log.d(TAG, "instantiateItem: image " + bannerArrayList.get(position).getImage());
 
+        if (bannerArrayList.get(position).getImage().isEmpty()) {
+            ivImage.setVisibility(View.GONE);
+            tvTitle.setVisibility(View.VISIBLE);
+            tvTitle.setText(bannerArrayList.get(position).getTitle());
+            tvTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, WebActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("TAG", bannerArrayList.get(position).getWeblink());
+                    context.startActivity(intent);
+                }
+            });
+        } else {
+
+            tvTitle.setVisibility(View.GONE);
+            ivImage.setVisibility(View.VISIBLE);
+            Glide.with(context)
+                    .load(bannerArrayList.get(position).getImage())
+                    .into(ivImage);
+            ivImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, WebActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("TAG", bannerArrayList.get(position).getWeblink());
+                    context.startActivity(intent);
+                }
+            });
+
+        }
         ((ViewPager) container).addView(view);
         return view;
     }

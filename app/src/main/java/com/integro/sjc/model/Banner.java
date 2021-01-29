@@ -2,35 +2,45 @@ package com.integro.sjc.model;
 
 import java.io.Serializable;
 
-public class Banner implements Serializable{
+public class Banner implements Serializable {
 
-        private String image;
+    private String image;
 
-        private String weblink;
+    private String title;
 
-        private String id;
+    private String weblink;
 
-        public String getImage() {
-            return image;
-        }
+    private String id;
 
-        public void setImage(String image) {
-            this.image = image;
-        }
+    public String getImage() {
+        return image;
+    }
 
-        public String getWeblink() {
-            return weblink;
-        }
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-        public void setWeblink(String weblink) {
-            this.weblink = weblink;
-        }
+    public String getTitle() {
+        return title;
+    }
 
-        public String getId() {
-            return id;
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public void setId(String id) {
-            this.id = id;
-        }
+    public String getWeblink() {
+        return weblink;
+    }
+
+    public void setWeblink(String weblink) {
+        this.weblink = weblink;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

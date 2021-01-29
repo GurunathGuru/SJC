@@ -23,9 +23,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0sp"
-            android:onClick="principalMessage"
             android:layout_margin="5sp"
             android:layout_weight="1.5"
+            android:onClick="principalMessage"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="5sp">
 
@@ -48,32 +48,33 @@
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-                    android:weightSum="2"
                     android:gravity="center|start"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="2">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
                         android:layout_weight="0.75"
+                        android:fontFamily="@font/ebgaramond_regular"
                         android:gravity="center|start"
                         android:paddingLeft="10sp"
-                        android:fontFamily="@font/ebgaramond_regular"
                         android:text="Management"
                         android:textColor="@color/colorWhite"
-                        android:textStyle="bold"
-                        android:textSize="20sp"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
+                        android:layout_toRightOf="@+id/president_img"
                         android:layout_weight="0.5"
+                        android:fontFamily="@font/ebgaramond_regular"
                         android:gravity="end|bottom"
                         android:paddingRight="10sp"
-                        android:fontFamily="@font/ebgaramond_regular"
-                        android:layout_toRightOf="@+id/president_img"
                         android:text="View More..!"
-                        android:textColor="@color/colorWhite" />
+                        android:textColor="@color/colorWhite"
+                        android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -87,14 +88,14 @@
             android:layout_marginRight="5sp"
             android:layout_marginBottom="5sp"
             android:layout_weight="1"
-            android:onClick="getNewsLetterList"
             android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
             android:fontFamily="@font/ebgaramond_regular"
             android:gravity="center|start"
+            android:onClick="getNewsLetterList"
             android:paddingLeft="10sp"
             android:text="Departmental NewsLetters"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -117,7 +118,7 @@
             android:paddingLeft="10sp"
             android:text="Facilities"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -140,7 +141,7 @@
             android:paddingLeft="10sp"
             android:text="Gallery"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -163,7 +164,7 @@
             android:paddingLeft="10sp"
             android:text="Contact Us"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -193,7 +194,7 @@
                 android:paddingLeft="10sp"
                 android:text="Staff Login"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/btnLogout"
@@ -206,7 +207,7 @@
                 android:paddingLeft="10sp"
                 android:text="Logout"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -273,6 +274,5 @@
                     android:src="@drawable/mail" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>

@@ -223,18 +223,11 @@
                 android:layout_weight="0.5"
                 app:cardBackgroundColor="@color/colorWhite">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2sp"
-                    android:padding="25sp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/marry_christmas4" />
-
                 <com.github.demono.AutoScrollViewPager
                     android:id="@+id/vpBanner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
+
             </androidx.cardview.widget.CardView>
 
 
@@ -277,6 +270,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
                         android:layout_gravity="center"
+                        app:cardBackgroundColor="@color/white"
                         android:layout_marginBottom="10sp"
                         android:layout_weight="1">
 
@@ -284,11 +278,11 @@
                             android:id="@+id/tvOnlineClasses"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/colorWhite"
+                            android:background="@drawable/border_yellow"
                             android:fontFamily="@font/ebgaramond_regular"
                             android:gravity="center"
                             android:text="ONLINE CLASS"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
                     </androidx.cardview.widget.CardView>
 
